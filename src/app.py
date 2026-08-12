@@ -38,6 +38,42 @@ activities = {
         "schedule": "Mondays, Wednesdays, Fridays, 2:00 PM - 3:00 PM",
         "max_participants": 30,
         "participants": ["john@mergington.edu", "olivia@mergington.edu"]
+    },
+    "Basketball Team": {
+        "description": "Competitive basketball training and games",
+        "schedule": "Tuesdays and Thursdays, 4:00 PM - 5:30 PM",
+        "max_participants": 15,
+        "participants": ["james@mergington.edu"]
+    },
+    "Tennis Club": {
+        "description": "Tennis skills development and friendly matches",
+        "schedule": "Saturdays, 9:00 AM - 11:00 AM",
+        "max_participants": 12,
+        "participants": ["sarah@mergington.edu", "alex@mergington.edu"]
+    },
+    "Art Studio": {
+        "description": "Painting, drawing, and visual arts exploration",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 18,
+        "participants": ["lucas@mergington.edu"]
+    },
+    "Drama Club": {
+        "description": "Theater performance and acting workshops",
+        "schedule": "Mondays and Thursdays, 4:00 PM - 5:30 PM",
+        "max_participants": 25,
+        "participants": ["maya@mergington.edu", "david@mergington.edu"]
+    },
+    "Debate Team": {
+        "description": "Competitive debate and public speaking skills",
+        "schedule": "Tuesdays and Fridays, 3:30 PM - 4:45 PM",
+        "max_participants": 16,
+        "participants": ["chris@mergington.edu"]
+    },
+    "Science Club": {
+        "description": "STEM exploration and hands-on experiments",
+        "schedule": "Wednesdays, 4:00 PM - 5:30 PM",
+        "max_participants": 20,
+        "participants": ["amber@mergington.edu", "ryan@mergington.edu"]
     }
 }
 
@@ -62,6 +98,8 @@ def signup_for_activity(activity_name: str, email: str):
     # Get the specific activity
     activity = activities[activity_name]
 
+    # Validate if the student is already signed up
+    if email in activity["participants"]:
     # Add student
     activity["participants"].append(email)
     return {"message": f"Signed up {email} for {activity_name}"}
